@@ -16,7 +16,11 @@ class CarsController {
     res.status(201).json(result);
   }
 
-  // public async read(): { }
+  public async read(_req: Request, res: Response<ICar[]>) {
+    const result = await this._service.read();
+
+    res.status(200).json(result);
+  }
 
   // public async readOne(_id: string): Promise<T | null>,
   // public async update(_id: string, obj: T): Promise<T | null>,
