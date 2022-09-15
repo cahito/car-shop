@@ -6,8 +6,9 @@ import errorHandler from './middlewares/error';
 const app = express();
 
 app.use(express.json());
-app.use(errorHandler);
 
 app.use(carsRouter);
+
+app.use(errorHandler);
 
 export default app;

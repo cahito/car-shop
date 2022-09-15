@@ -10,8 +10,9 @@ class CarService implements IService<ICar> {
   }
 
   public async create(obj:unknown): Promise<ICar> {
-    const parsed = carZodSchema.safeParse(obj);
+    if (!obj) throw Error('UndefinedObject');
 
+    const parsed = carZodSchema.safeParse(obj);
     if (!parsed.success) {
       throw parsed.error;
     }

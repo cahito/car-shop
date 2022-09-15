@@ -3,16 +3,15 @@ import { IService } from '../interfaces/IService';
 import { ICar } from '../interfaces/ICar';
 
 class CarsController {
-  private _service!: IService<ICar>;
+  private _service: IService<ICar>;
 
   constructor(service: IService<ICar>) {
     this._service = service;
   }
 
   public async create(req: Request, res: Response<ICar>) {
-    const { status, model, year, color, buyValue, doorsQty, seatsQty } = req.body;
-    const car = { status, model, year, color, buyValue, doorsQty, seatsQty };
-    const result = await this._service.create(car);
+    const payload = req.body;
+    const result = await this._service.create(payload);
   
     res.status(201).json(result);
   }
