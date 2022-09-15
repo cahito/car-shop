@@ -12,5 +12,6 @@ router.post('/cars', (req, res) => carsController.create(req, res));
 router.get('/cars', (req, res) => carsController.read(req, res));
 router.get('/cars/:id', (req, res) => carsController.readOne(req, res));
 router.put('/cars/:id', (req, res) => carsController.update(req, res));
+router.delete('/cars/:id', (req, res) => carsController.delete(req, res));
 
 export default router;
