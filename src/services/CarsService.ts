@@ -25,7 +25,10 @@ class CarService implements IService<ICar> {
 
   public async readOne(_id: string): Promise<ICar | null> {
     if (!isValidObjectId(_id)) throw Error('InvalidMongoId');
-    return this._car.readOne(_id);
+    const result = await this._car.readOne(_id);
+    if (!result) throw Error('ObjectNotFound');
+    
+    return result;
   }
 
   public async update(_id: string, obj: ICar): Promise<ICar | null> {

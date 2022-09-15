@@ -22,7 +22,13 @@ class CarsController {
     res.status(200).json(result);
   }
 
-  // public async readOne(_id: string): Promise<T | null>,
+  public async readOne(req: Request, res: Response<ICar | null>) {
+    const { id } = req.params;
+    const result = await this._service.readOne(id);
+
+    res.status(200).json(result);
+  }
+
   // public async update(_id: string, obj: T): Promise<T | null>,
   // public async delete(_id: string): Promise<T | null>,
 }
