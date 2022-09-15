@@ -29,7 +29,14 @@ class CarsController {
     res.status(200).json(result);
   }
 
-  // public async update(_id: string, obj: T): Promise<T | null>,
+  public async update(req: Request, res: Response<ICar | null>) {
+    const { id } = req.params;
+    const payload = req.body;
+    const result = await this._service.update(id, payload);
+
+    res.status(200).json(result);
+  }
+
   // public async delete(_id: string): Promise<T | null>,
 }
 
