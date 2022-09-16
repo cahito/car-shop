@@ -6,6 +6,7 @@ import app from '../../../app';
 import { CARS } from '../../../routers/main';
 import VehicleController from '../../../controllers/VehicleController';
 import CarsController from '../../../controllers/CarsController';
+import { carsMock } from '../dataMock';
 
 chai.use(chaiHttp);
 const { expect } = chai;
