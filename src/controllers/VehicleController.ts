@@ -1,7 +1,8 @@
 import { Request, Response } from 'express';
+import { IController } from '../interfaces/IController';
 import { IService } from '../interfaces/IService';
 
-abstract class VehicleController<T> {
+abstract class VehicleController<T> implements IController<T> {
   protected _service: IService<T>;
 
   constructor(service: IService<T>) {
