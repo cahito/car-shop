@@ -1,31 +1,32 @@
 import { isValidObjectId } from 'mongoose';
+import { ZodSchema } from 'zod';
 import { IService } from '../interfaces/IService';
 import { IModel } from '../interfaces/IModel';
-import { IVehicle, vehicleZodSchema } from '../interfaces/IVehicle';
 
-abstract class VehicleService implements IService<IVehicle> {
-  protected _vehicle:IModel<IVehicle>;
-  protected _vehicleSchema:typeof vehicleZodSchema;
-  constructor(model:IModel<IVehicle>, vehicleSchema:typeof vehicleZodSchema) {
+abstract class VehicleService<T> implements IService<T> {
+  protected _vehicle:IModel<T>;
+  protected _vehicleSchema:ZodSchema<T>;
+  constructor(model:IModel<T>, vehicleSchema:ZodSchema<T>) {
     this._vehicle = model;
     this._vehicleSchema = vehicleSchema;
   }
 
-  public async create(obj:unknown): Promise<IVehicle> {
+  public async create(obj:unknown): Promise<T> {
     if (!obj) throw new Error('UndefinedObject');
 
     const parsed = this._vehicleSchema.safeParse(obj);
     if (!parsed.success) {
       throw parsed.error;
     }
+
     return this._vehicle.create(parsed.data);
   }
 
-  public async read(): Promise<IVehicle[]> {
+  public async read(): Promise<T[]> {
     return this._vehicle.read();
   }
 
-  public async readOne(_id: string): Promise<IVehicle | null> {
+  public async readOne(_id: string): Promise<T | null> {
     if (!isValidObjectId(_id)) throw Error('InvalidMongoId');
     const result = await this._vehicle.readOne(_id);
     if (!result) throw new Error('ObjectNotFound');
@@ -33,7 +34,7 @@ abstract class VehicleService implements IService<IVehicle> {
     return result;
   }
 
-  public async update(_id: string, obj: IVehicle): Promise<IVehicle> {
+  public async update(_id: string, obj: T): Promise<T> {
     if (!obj || Object.keys(obj).length === 0) throw new Error('UndefinedObject');
     if (!isValidObjectId(_id)) throw new Error('InvalidMongoId');
     
@@ -43,7 +44,7 @@ abstract class VehicleService implements IService<IVehicle> {
     return result;
   }
 
-  public async delete(_id: string): Promise<IVehicle | null> {
+  public async delete(_id: string): Promise<T | null> {
     if (!isValidObjectId(_id)) throw new Error('InvalidMongoId');
 
     const result = await this._vehicle.delete(_id);
