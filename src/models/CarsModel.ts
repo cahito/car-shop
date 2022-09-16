@@ -13,7 +13,7 @@ const carsMongooseSchema = new Schema<ICar>({
 }, { versionKey: false });
 
 class CarsModel extends MongoModel<ICar> {
-  constructor(model = mongooseCreateModel('CarsModel', carsMongooseSchema)) {
+  constructor(model = mongooseCreateModel('Cars', carsMongooseSchema)) {
     super(model);
   }
 }
