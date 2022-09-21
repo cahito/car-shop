@@ -53,6 +53,51 @@ export const updatedCar: CarReturn = {
   seatsQty: 5,
 }
 
+export const carWrongModel: ICar = {
+  model: "Fu",
+  year: 1996,
+  color: "vermelho",
+  buyValue: 6500,
+  doorsQty: 2,
+  seatsQty: 5,
+}
+
+export const carWrongYear: ICar = {
+  model: "Fusca",
+  year: 1890,
+  color: "vermelho",
+  buyValue: 6500,
+  doorsQty: 2,
+  seatsQty: 5,
+}
+
+export const carWrongColor: ICar = {
+  model: "Fusca",
+  year: 1996,
+  color: "v",
+  buyValue: 6500,
+  doorsQty: 2,
+  seatsQty: 5,
+}
+
+export const carWrongDoors: ICar = {
+  model: "Fusca",
+  year: 1996,
+  color: "vermelho",
+  buyValue: 6500,
+  doorsQty: 5,
+  seatsQty: 5,
+}
+
+export const carWrongSeats: ICar = {
+  model: "Fusca",
+  year: 1996,
+  color: "vermelho",
+  buyValue: 6500,
+  doorsQty: 2,
+  seatsQty: 1,
+}
+
 export const carsMock: CarReturn[] = [
   {
     _id: "abcdefabcdef123456654321",

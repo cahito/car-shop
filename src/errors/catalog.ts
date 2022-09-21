@@ -1,12 +1,11 @@
 export enum ErrorTypes {
-  // EntityNotFound = 'EntityNotFound',
   InvalidMongoId = 'InvalidMongoId',
   UndefinedObject = 'UndefinedObject',
   ObjectNotFound = 'ObjectNotFound',
 }
 
 // esse é o tipo do objeto vai ser usado construir a resposta da API
-type ErrorResponseObject = {
+export type ErrorResponseObject = {
   message: string;
   httpStatus: number
 };
@@ -20,10 +19,6 @@ export type ErrorCatalog = {
 };
 
 export const errorCatalog: ErrorCatalog = {
-  /* EntityNotFound: {
-    message: 'Entity not found',
-    httpStatus: 404,
-  }, */
   InvalidMongoId: {
     message: 'Id must have 24 hexadecimal characters',
     httpStatus: 400,
