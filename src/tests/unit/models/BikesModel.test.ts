@@ -28,40 +28,40 @@ describe('Ao testar a camada de Model do cadastro de motos', () => {
     sinon.restore();
   })
 
-  describe('para criar um registro de um novo carro', () => {
-    it('retorna o carro inserido corretamente', async () => {
+  describe('para criar um registro de uma nova moto', () => {
+    it('retorna a moto inserida corretamente', async () => {
       const result = await bikesModel.create(bikeDataToCreate);
 
       expect(result).to.be.eql(createdBike);
     });
   });
 
-  describe('para recuperar o registro de todos os carros cadastrados', () => {
-    it('retorna um array de todos os carros cadastrados', async () => {
+  describe('para recuperar o registro de todas as motos cadastradas', () => {
+    it('retorna um array de todas as motos cadastradas', async () => {
       const result = await bikesModel.read();
 
       expect(result).to.be.eql(bikesMock);
     });
   });
 
-  describe('para recuperar o registro de um carro específico cadastrado', () => {
-    it('retorna um objeto do carro cadastrado', async () => {
+  describe('para recuperar o registro de uma moto específica cadastrada', () => {
+    it('retorna um objeto da moto cadastrada', async () => {
       const result = await bikesModel.readOne(ID_1);
 
       expect(result).to.be.eql(bikesMock[0]);
     });
   });
 
-  describe('para atualizar o registro de um carro específico cadastrado', () => {
-    it('retorna o registro atualizado do carro cadastrado', async () => {
+  describe('para atualizar o registro de uma moto específica cadastrada', () => {
+    it('retorna o registro atualizado da moto cadastrada', async () => {
       const result = await bikesModel.update(ID_1, bikeDataToUpdate);
 
       expect(result).to.be.eql(updatedBike);
     });
   });
 
-  describe('para apagar o registro de um carro específico cadastrado', () => {
-    it('retorna true quando é apagado o carro cadastrado', async () => {
+  describe('para apagar o registro de uma moto específica cadastrada', () => {
+    it('retorna true quando é apagado a moto cadastrada', async () => {
       const result = await bikesModel.delete(ID_1);
 
       expect(result).to.be.true;
