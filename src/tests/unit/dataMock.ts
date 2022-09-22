@@ -157,6 +157,51 @@ export const updatedBike: BikeReturn = {
   engineCapacity: 450,
 }
 
+export const bikeWrongModel: IMotorcycle = {
+  model: "CB",
+  year: 1993,
+  color: "babalu",
+  buyValue: 10000,
+  category: "Street",
+  engineCapacity: 450,
+}
+
+export const bikeWrongYear: IMotorcycle = {
+  model: "CBR 450",
+  year: 2993,
+  color: "babalu",
+  buyValue: 10000,
+  category: "Street",
+  engineCapacity: 450,
+}
+
+export const bikeWrongColor: IMotorcycle = {
+  model: "CBR 450",
+  year: 1993,
+  color: "b",
+  buyValue: 10000,
+  category: "Street",
+  engineCapacity: 450,
+}
+
+export const bikeWrongCategory: IMotorcycle = {
+  model: "CBR 450",
+  year: 1993,
+  color: "babalu",
+  buyValue: 10000,
+  category: "Racing" as any,
+  engineCapacity: 450,
+}
+
+export const bikeWrongEngCapacity: IMotorcycle = {
+  model: "CBR 450",
+  year: 1993,
+  color: "babalu",
+  buyValue: 10000,
+  category: "Street",
+  engineCapacity: 4500,
+}
+
 export const bikesMock: BikeReturn[] = [
   {
     _id: "abcdefabcdef123456654321",

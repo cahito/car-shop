@@ -1,7 +1,7 @@
 import * as sinon from 'sinon';
 import chai from 'chai';
 import { ZodError } from 'zod';
-import { errorCatalog, ErrorTypes, ErrorResponseObject } from '../../../errors/catalog';
+import { ErrorTypes } from '../../../errors/catalog';
 const { expect } = chai;
 import CarsModel from '../../../models/CarsModel'
 import CarsService from '../../../services/CarsService';
@@ -21,7 +21,6 @@ import {
   ID_NOT_FOUND,
   updatedCar,
 } from '../dataMock';
-import { ICar } from '../../../interfaces/ICar';
 import { Model } from 'mongoose';
 
 const carsModel = new CarsModel();
@@ -121,7 +120,7 @@ describe('Ao testar a camada de Service do cadastro de carros', () => {
   });
 
   describe('para recuperar o registro de um carro cadastrado específico', () => {
-    it('retorna um array de todos os carros cadastrados', async () => {
+    it('retorna um objeto do carro cadastrado específico', async () => {
       sinon.stub(carsModel, 'readOne').resolves(carsMock[1]);
       const result = await carsService.readOne(ID_2);
 
